@@ -167,7 +167,9 @@ export const Navigation = () => {
           <Item label="Settings" icon={Settings} onClick={settings.onOpen} />
           <Item label="New page" icon={PlusCircle} onClick={handleCreate} />
         </div>
+       
         <div className="mt-4">
+          <p className="ml-[15px] mb-[5px] text-sm font-medium text-muted-foreground/80">Documents</p>
           <DocumentList />
           <Item label="Add a page" icon={Plus} onClick={handleCreate} />
           <Popover>

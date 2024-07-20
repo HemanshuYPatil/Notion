@@ -11,6 +11,7 @@ import { ModalProvider } from "@/components/providers/modal-provider";
 import { EdgeStoreProvider } from "@/lib/edgestore";
 
 import "./globals.css";
+import { UserProfile } from "@clerk/clerk-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -52,7 +53,9 @@ export default function RootLayout({
               storageKey="notion-theme"
             >
               <Toaster position="bottom-center" />
+              
               <ModalProvider />
+              
               {children}
             </ThemeProvider>
           </EdgeStoreProvider>

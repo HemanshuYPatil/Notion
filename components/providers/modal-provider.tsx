@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import { SettingsModal } from "@/components/modals/settings-modal";
 import { CoverImageModal } from "@/components/modals/cover-image-modal";
+import Profile from "../modals/profile";
 
 export function ModalProvider() {
   const [isMounted, setIsMounted] = useState(false);
@@ -16,6 +17,7 @@ export function ModalProvider() {
     <>
       <SettingsModal />
       <CoverImageModal />
+      <Profile />
     </>
   );
 }

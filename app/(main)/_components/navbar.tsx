@@ -12,7 +12,8 @@ import { Publish } from "./publish";
 
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
-
+import { Share } from "./share";
+import { Notification } from './notification';
 interface NavbarProps {
   isCollapsed: boolean;
   onResetWidth: () => void;
@@ -21,9 +22,18 @@ interface NavbarProps {
 export const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
   const params = useParams();
 
+  const rawDocumentId = Array.isArray(params.documentId) ? params.documentId[0] : params.documentId;
+
+
+  const validDocumentId = rawDocumentId.split('-')[0] as Id<"documents">;
+
+
+  console.log('Valid Document ID:', validDocumentId);
   const document = useQuery(api.documents.getById, {
-    documentId: params.documentId as Id<"documents">,
+    documentId: validDocumentId ,
   });
+
+  console.log(document);
 
   if (document === undefined) {
     return (
@@ -52,6 +62,8 @@ export const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
           <Title initialData={document} />
           <div className="flex items-center gap-x-2">
             <Publish initialData={document} />
+            <Share />
+            <Notification />
             <Menu documentId={document._id} />
           </div>
         </div>
