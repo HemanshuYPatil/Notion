@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from 'react';
-import { useUser, SignOutButton, UserProfile } from "@clerk/clerk-react";
+
+import { useUser, SignOutButton } from "@clerk/clerk-react";
 import { ChevronsLeftRight } from "lucide-react";
 
 import {
@@ -12,12 +12,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { useProfileStore } from '@/lib/profile';
+
 
 export const UserItem = () => {
 
   const { user } = useUser();
-  const openProfile = useProfileStore((state) => state.openProfile);
+ 
 
 
 
